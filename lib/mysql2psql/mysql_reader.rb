@@ -27,6 +27,7 @@ class Mysql2psql
       end
     
       def convert_type(type)
+        # TODO: make this mappable via the config file
         case type
         when /int.* unsigned/
           "bigint"
@@ -35,7 +36,7 @@ class Mysql2psql
         when "bit(1)"
           "boolean"
         when "tinyint(1)"
-          "boolean"
+          "tinyint"
         when /tinyint/
           "tinyint"
         when /int/
